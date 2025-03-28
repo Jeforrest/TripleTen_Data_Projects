@@ -2,9 +2,11 @@
 
 Analyzed the Manhattan vacation rental market using scraped airbnb data for a (theoretical) client with the goal of determining which properties would be most likely to net the biggest returns for investors.
 
+
 The data was cleaned by using Google sheets’ “PROPER” function to return the correct format for neighborhood names.  Neighborhood names were then double checked with the “Data Validation” tool and names that did not match one of the neighborhood selections, either because of a misspelling or a capitalisation error, were flagged which allowed me to go back in and make corrections ( “Est Village” “east vil” and “east viallage” were all able to be corrected to the correct “East Village”.  These corrected values were stored in a new field labeled “neighborhood\_cleaned” which facilitated the creation of pivot tables and ensured accurate calculations.  Fields which weren’t necessarily relevant to our analysis were grouped and hidden (as evidenced by the ‘+’ icons above certain fields) so the table was less chaotic.  
 
 <img width="1440" alt="Screenshot 2025-03-27 at 3 28 50 PM" src="https://github.com/user-attachments/assets/7649f33f-63b2-43f6-b9a2-2aa1db0f04b7" />
+
 
 
 
@@ -13,8 +15,10 @@ Pivot tables were used to perform calculations and create visualizations for the
 
 
 
+
 To look further into our neighborhoods and better understand the preferences of AirBNB users, another pivot table was made.  This one gives the sum of reviews for each property size (property size here is used to mean the \# of bedrooms) and is grouped by neighborhood.  
 <img width="1440" alt="Screenshot 2025-03-27 at 3 29 57 PM" src="https://github.com/user-attachments/assets/fd840f6b-12a3-4476-b2cc-f3c5aabc2262" />
+
 
 
 
