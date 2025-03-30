@@ -3,22 +3,28 @@
 This Project was meant to simulate being a junior analyst for a rideshare company (cleverly named “Zuber”)  tasked with finding certain patterns in the data to gauge user activity and finding any connection between external events (such as weather) and the frequency of rides.  The project was a guided analysis in PostgreSQL with 6 different questions – each requiring a different SQL Query.
 
 The analysis started with a simple query, finding the number of trips taken with each cab company in a specific date range (here 11.15.2017-11.16.2017).  The companies were listed in descending order by the trip amount.  The query involved fields from two different tables, so the tables were joined by the “cab\_id” fields to facilitate the query.  
-![][image1]
+<img width="1440" alt="Screenshot 2025-03-28 at 7 18 24 PM" src="https://github.com/user-attachments/assets/bdad90b5-c43c-40a1-b1c0-34c4c6ced673" />
 
-	The next question builds on the last and is essentially the same query, only this time the date range changes and only cab companies with the words “yellow” or “blue” are selected from the data set.    
-![][image2]
 
-	The next query takes the trip count for the companies “Flash Cab” and “taxi Affiliation Services” and then groups all the other companies as “other”.  The three are printed out with the trip amount column next to it.  The date range is the same from the last question (11.01.2017 and 11.07.2017).  
-![][image3]
+The next question builds on the last and is essentially the same query, only this time the date range changes and only cab companies with the words “yellow” or “blue” are selected from the data set.    
+<img width="1440" alt="Screenshot 2025-03-28 at 7 18 53 PM" src="https://github.com/user-attachments/assets/49be1aff-e0de-413e-beff-3e77d0006c59" />
 
-  	The next assignment was very simple comparatively: find the identifiers (neighborhood ID \#s) for the “Loop” and “O’Hare” Neighborhoods.  What you can see on the left of the neighborhood table covers the full extent of its fields.  Using the “\*” operator to select every field from this table will only give two fields: neighborhood\_ID and Name, which holds the name for each neighborhood.  By only selecting the neighborhoods with “Hare” or “Loop” in the name, we very easily can pull the values of the Neighborhood ID  
-![][image4]
 
-	The next assignment was to group all weather events whose descriptions included the words “rain” or “storm” as “Bad” and all other events as “Good”.  A timestamp was then printed in the date-hour format to permit one for each hour (one at 0100, one at 0200 and so on) with the corresponding classification of “good” or “Bad” printed beside it.  
-![][image5]
+The next query takes the trip count for the companies “Flash Cab” and “taxi Affiliation Services” and then groups all the other companies as “other”.  The three are printed out with the trip amount column next to it.  The date range is the same from the last question (11.01.2017 and 11.07.2017).  
+<img width="1440" alt="Screenshot 2025-03-28 at 7 20 20 PM" src="https://github.com/user-attachments/assets/5f13febd-8f82-411f-b3a3-28b9c1fbd90e" />
 
-	The Final question builds on the previous one by using the exact same query as a subquery (aptly assigned the name “sub”).  The query selects the start time for each ride, the weather conditions (again here either “Good” or “bad”), and the trip duration, which is stored in the table in seconds (hence the field name).  These fields are pulled from both our subquery and the trips table which are joined to each other by a left join (Sub to trips) to include all the values from trips that correspond to a date-hour value in the subquery.  The only trips that are included in the query are those that started in the Loop (Location\_ID 50\) and ended in the O’Hare area (Location\_ID 63).  
-![][image6]
+
+The next assignment was very simple comparatively: find the identifiers (neighborhood ID \#s) for the “Loop” and “O’Hare” Neighborhoods.  What you can see on the left of the neighborhood table covers the full extent of its fields.  Using the “\*” operator to select every field from this table will only give two fields: neighborhood\_ID and Name, which holds the name for each neighborhood.  By only selecting the neighborhoods with “Hare” or “Loop” in the name, we very easily can pull the values of the Neighborhood ID  
+<img width="1440" alt="Screenshot 2025-03-28 at 7 20 56 PM" src="https://github.com/user-attachments/assets/3ecc66a2-2e21-4a75-85fb-c9884127f363" />
+
+
+The next assignment was to group all weather events whose descriptions included the words “rain” or “storm” as “Bad” and all other events as “Good”.  A timestamp was then printed in the date-hour format to permit one for each hour (one at 0100, one at 0200 and so on) with the corresponding classification of “good” or “Bad” printed beside it.  
+<img width="1440" alt="Screenshot 2025-03-28 at 7 21 43 PM" src="https://github.com/user-attachments/assets/0a3b6b8b-9a3c-4e45-a520-a280255460ff" />
+
+
+The Final question builds on the previous one by using the exact same query as a subquery (aptly assigned the name “sub”).  The query selects the start time for each ride, the weather conditions (again here either “Good” or “bad”), and the trip duration, which is stored in the table in seconds (hence the field name).  These fields are pulled from both our subquery and the trips table which are joined to each other by a left join (Sub to trips) to include all the values from trips that correspond to a date-hour value in the subquery.  The only trips that are included in the query are those that started in the Loop (Location\_ID 50\) and ended in the O’Hare area (Location\_ID 63).  
+<img width="1440" alt="Screenshot 2025-03-28 at 7 22 14 PM" src="https://github.com/user-attachments/assets/96358cdb-ec14-4301-bdac-b947f9ea8150" />
+
 
 This project was guided, meaning the questions were structured to get a specific query out.  In fact, the system would not accept any code other than the one it was fishing for, so there was not much creative license.  As such, there’s not a whole lot I would have done differently for this analysis.  I will be doing some open source projects in the future however, to sharpen my coding skills and to practice thinking critically and coming up with novel solutions to problems with my queries.
 
