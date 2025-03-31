@@ -3,21 +3,24 @@
 This project was set up to simulate working as a junior analyst for an e-commerce company.  Google Sheets was used to perform certain analytical calculations such as creating a conversion funnel and conducting a cohort analysis with retention rate calculations.  An executive summary was then made to give an overview of the analysis with actionable recommendations for shareholders.
 
 The first step of the analysis was to make a conversion funnel.  This was done by obtaining the unique count of user Ids at each event type.  These event types were the three different steps in our conversion funnel.  Users must first view a product, then add it to their shopping cart before making a purchase, so these were the conversion funnel steps.  Two different conversion rates were then calculated, one the overall rate and another the conversion rate to next step (The amount of users who converted from the last step in the funnel).  
-![][image1]
+<img width="900" alt="Screenshot 2025-03-30 at 10 56 05 AM" src="https://github.com/user-attachments/assets/8a46f186-b5fa-4a84-8256-c96bff727b0a" />
+
 
 The next calculation to be made was the retention rate, but this required several steps.  To calculate retention rates properly, customers have to be divided into cohorts based on the dates of their first purchase.  Naturally then, the first step for me was calculating the first purchase dates of each customer.  This was done using a pivot table with the rows being user\_id and the values being the minimum “event\_date” of the purchase\_data table which represents the date on which a purchase was made.  
-![][image2]
+<img width="831" alt="Screenshot 2025-03-30 at 10 56 34 AM" src="https://github.com/user-attachments/assets/cfefbe6d-e984-4fde-9af5-89d297344a8d" />
+
 
 The values from the pivot table were then stored back into the “Purchase\_Data” table using the VLOOKUP function, searching for the user\_id value of each specific row in the “Purchase\_data” table in the “first\_purchase” table.  The values were stored in a field named “first\_purchase\_date”.  The TEXT function was then used to extract just the year and month in the ‘YYYY/MM’ format.  Those values were stored in yet another field labeled “first\_purchase\_month”.  As this is in the same format as the “event\_month” column, a new field labeled “cohort\_age” was calculated by taking the difference, in months, of the two dates (using the DATEDIF function).  
-![][image3]
+<img width="1440" alt="Screenshot 2025-03-30 at 10 56 51 AM" src="https://github.com/user-attachments/assets/15d5eb3f-8f61-423d-9cb5-d5910b1a8320" />
+
 
 At this point the cohort analysis was ready.  The cohorts were based on the month of first purchase, one for each month from 09/2020-02/2021.  A Pivot table was then made to see the unique count of users for each cohort after x amount of months (from 0-4).  
-![][image4]
+<img width="1071" alt="Screenshot 2025-03-30 at 10 57 33 AM" src="https://github.com/user-attachments/assets/687d66bb-a9e9-403a-9efc-fd6d2a5e909d" />
 
-The entire analysis was then summarized in an executive summ
 
 The “cohort\_analysis” pivot table was then used to calculate retention rates in a new sheet.  The left column placed the cohorts in the same order and the top row was labeled with each month of the analysis (1-4).  Retention rates were then calculated by dividing the count for each month  in the cohort\_analysis by the initial count (the count at month 0).  The values were formatted as percentages.  The first row and the first column were formatted to make the table easier to interpret.  
-![][image5]
+<img width="1062" alt="Screenshot 2025-03-30 at 10 57 56 AM" src="https://github.com/user-attachments/assets/a94b4d0b-f69f-4fd1-96d7-b2edd2b49556" />
+
 
 To see the rest of the project click this link:  
 [Joshua Forrest - Sprint 3 Business Analytics Project](https://docs.google.com/spreadsheets/d/1Dq-R1fBtc3YkR9-d5HjhljvylDoO8481yAsAakAV9po/edit?usp=sharing)
