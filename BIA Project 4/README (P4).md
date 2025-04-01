@@ -3,34 +3,44 @@
 This project used Tableau to analyze data for an online superstore in order to increase their profitability and help them avoid bankruptcy.  The goals of the analysis were to: identify profit and losses, determining whether or not advertising is justifiable given the current profit per unit, and to identify which products have an abnormally high rate of return.  Deliverables were visualizations which justified the conclusions you came to.
 
 The first step I took in the profit-loss analysis was identifying the profit centers.  A table was made with profit as the rows and both region and sub-category as the columns.  This way the most profitable sub-categories in each region could be viewed to recognize trends and any outliers.  A “top” filter was placed on the sub-category field so that only the 6 most profitable sub-categories were shown.  
-![][image1]
+<img width="1440" alt="Screenshot 2025-04-01 at 9 11 42 AM" src="https://github.com/user-attachments/assets/1c478aa4-e2c9-499d-8148-08227942d15e" />
+
 
 Essentially the same table was made to show the least profitable sub-categories or the biggest loss-makers.  All the fields included in the table are the same, the main difference is that the “top” filter on the sub-category field was changed to show the bottom 4 in terms of sum of profit.  
-![][image2]
+<img width="1440" alt="Screenshot 2025-04-01 at 9 11 46 AM" src="https://github.com/user-attachments/assets/b07434b8-fc71-4c6b-a91b-dc11bbd0d5c1" />
 
-A list of products to stop selling was made by placing product name in the column slot and the sum of profits in the rows slot.  A conditional filter was placed to only show products that had a profit sum that was less than 0\.  All products listed are those which are losing the company money, which in theory means all of these products could be cut from inventories.  However, since consumer behavior is ever-changing, only the 3 biggest losses were highlighted.  
-![][image3]
+
+A list of products to stop selling was made by placing product name in the column slot and the sum of profits in the rows slot.  A conditional filter was placed to only show products that had a profit sum that was less than 0\.  All products listed are those which are losing the company money, which in theory means all of these products could be cut from inventories.  However, since consumer behavior is ever-changing, only the 3 biggest losses were highlighted. 
+<img width="1440" alt="Screenshot 2025-04-01 at 9 12 24 AM" src="https://github.com/user-attachments/assets/28ac312e-06f6-49c6-bfe2-2ce6cd9d7c76" />
+
 
 The next goal in the analysis was to determine whether or not it would be worth it for the company to advertise.  Since advertisement works over time and geography, profitability over time was analyzed in each state.  The month field was placed in the columns slot and the average profit placed in the rows.  The three most profitable states, and hence the 3 best places for the company to advertise in, were selected by adding a “top” filter on the state field and selecting the 3 most profitable.  The state field was then added to “colors” to display different colored lines for each of these three states.  
-![][image4]
+<img width="1440" alt="Screenshot 2025-04-01 at 9 12 43 AM" src="https://github.com/user-attachments/assets/739969cf-3305-4e52-a304-27eedd96bfb9" />
+
 
 The next visualization looks at our biggest indicator for whether or not advertising can be justified: Profit per unit.  Since advertising works over geography, we looked at the average profit per unit in each state, and made a map so that this could easily be visualized.  For example, one look at the map tells the viewer advertising would be a much better tool when used in either Nevada or Washington, compared to Oregon or Arizona, based on the more favorable average profit per unit in the first two states than the latter two.  Selling products in the orange states, on average, comes at a loss to the company, so advertising does not make sense in those places.  
-![][image5]
+<img width="1440" alt="Screenshot 2025-04-01 at 9 12 47 AM" src="https://github.com/user-attachments/assets/f893aeb8-3f5e-4d75-b318-094329c8622a" />
+
 
 By the guidelines of this “company”, ⅕ of all profits could be allocated to advertising budgets.  As such, a calculated field called “maximum advertising budgets” was created using the simple calculation (\[Profit\] \* .2).  This automatically shows ⅕(20% or .2) of the total profits.  This field was examined over each month for each of the three most profitable states from earlier.  Not surprisingly, each of the charts looks identical in shape to the respective line in the graph shown earlier, but it is the values within, not the graph shape, which is important here.  
-![][image6]
+<img width="1440" alt="Screenshot 2025-04-01 at 9 13 05 AM" src="https://github.com/user-attachments/assets/1fa13ad1-a7b0-4b08-972b-fece5270dab9" />
+
 
 The final step for this analysis was to examine return rates.  As such, a few calculated fields had to be created.  The first used the “CASE” function to return the integer 1 when the “Yes” value was in the returned field, the only field in the initial data set that indicated whether or not an item had been returned following a transaction.  All other values, including null values, returned the integer 0\.  This was done to facilitate aggregations, which cannot be done with strings.  
-![][image7]
+<img width="488" alt="Screenshot 2025-04-01 at 9 17 07 AM" src="https://github.com/user-attachments/assets/93689be9-98a7-42dd-bdbb-08327b3f756c" />
+
 
 The next step was using that first calculated field to create another, this one which would return a return rate.  This took the sum of all of the returns (which were given a value of 1 for each transaction) and divided it by the sum of the quantity purchased.  All of that was multiplied by 100 to give the whole number “percentage” (minus the “%” symbol).  That way if 10 of a specific item was sold and 3 were returned, the aggregated return rate field would display 30 as in 30% of the items were returned.  
-![][image8]
+<img width="485" alt="Screenshot 2025-04-01 at 9 17 20 AM" src="https://github.com/user-attachments/assets/70c6d22e-ed4b-47b7-a5dc-b5ebace7241b" />
+
 
 The return rate field was used here to create a visualization which showed the 10 products with the highest return rates.  The products with the two highest return rates are highlighted here.  
-![][image9]
+<img width="1440" alt="Screenshot 2025-04-01 at 9 13 08 AM" src="https://github.com/user-attachments/assets/010a2bdb-1127-4844-a4e0-22ea9fe84edb" />
+
 
 The average profit was compared to return rates in all three categories here.  All three are returned at similar rates but Technology is wildly more profitable (at least 4x as much).  This could suggest that the company could do well to scrap the furniture and office supplies categories entirely and stick with what is making money: tech.  
-![][image10]
+<img width="1066" alt="Screenshot 2025-04-01 at 9 17 49 AM" src="https://github.com/user-attachments/assets/70d1eb3e-be39-4be9-959d-1aa4e03c6822" />
+
 
 Have a look at the full project, including stories with insights and recommendations here:    
 [https://public.tableau.com/shared/3KZFDQYKH?:display\_count=n&:origin=viz\_share\_link](https://public.tableau.com/shared/3KZFDQYKH?:display_count=n&:origin=viz_share_link)  
